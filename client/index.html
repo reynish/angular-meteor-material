@@ -1,0 +1,53 @@
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <base href="/">
+    <style>
+        body {
+            -webkit-flex-direction: column;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            box-sizing: border-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+        }
+    </style>
+</head>
+
+<body>
+  <div class="md-theme-indigo" ng-app="socially" ng-controller="AppCtrl" layout="column" layout-fill>
+
+      <section layout="row" flex>
+
+      <!--SIDENAV-->
+      <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left">
+          <!--<md-toolbar>-->
+              <!--<h1 class="md-toolbar-tools" flex>Sidenav Left</h1>-->
+          <!--</md-toolbar>-->
+          <md-content class="md-padding">
+            <p>Content in here</p>
+          </md-content>
+      </md-sidenav>
+      <!--SIDENAV-->
+
+      <!--MAIN-->
+      <div layout="column" layout-fill overflow-y="scroll">
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <md-button ng-click="toggleLeft()">
+                    Menu
+                </md-button>
+                <p>
+                    <a href="/parties">Home</a>
+                </p>
+            </div>
+        </md-toolbar>
+        <md-content class="md-padding" flex>
+            <div ui-view></div>
+        </md-content>
+      </div>
+      <!--MAIN-->
+      </section>
+
+  </div>
+</body>
