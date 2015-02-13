@@ -1,4 +1,4 @@
-angular.module('socially', ['angular-meteor', 'ui.router', 'ngMaterial']);
+angular.module('socially', ['angular-meteor', 'ui.router', 'ngMaterial', 'ngMdIcons']);
 
 angular.module("socially").controller("AppCtrl", ['$scope', '$stateParams', '$mdSidenav',
   function ($scope, $stateParams, $mdSidenav) {
