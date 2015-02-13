@@ -16,7 +16,7 @@ angular.module("socially").controller("PartiesListCtrl", ['$scope', '$meteorColl
     $scope.parties = $meteorCollection(Parties);
 
     $scope.add = function(party) {
-      $scope.parties.push(newParty);
+      $scope.parties.push(party);
     };
 
     $scope.remove = function (party) {
@@ -26,11 +26,23 @@ angular.module("socially").controller("PartiesListCtrl", ['$scope', '$meteorColl
     $scope.showGridBottomSheet = function($event) {
       $scope.alert = '';
       $mdBottomSheet.show({
-        template: '<md-bottom-sheet class="md-padding">'+ $templateCache.get('client/views/parties/parties-new.tpl') +'</md-bottom-sheet>',
+        template: '<md-bottom-sheet>'+ $templateCache.get('client/views/parties/parties-new.tpl') +'</md-bottom-sheet>',
+        controller: 'PartiesEditCtrl',
         targetEvent: $event
-      }).then(function(clickedItem) {
-        $scope.alert = clickedItem.name + ' clicked!';
+      }).then(function(){
       });
+    };
+
+  }]);
+
+angular.module("socially").controller("PartiesEditCtrl", ['$scope', '$meteorCollection', '$mdBottomSheet',
+  function ($scope, $meteorCollection, $mdBottomSheet) {
+
+    $scope.parties = $meteorCollection(Parties);
+
+    $scope.add = function(party) {
+      $scope.parties.push(party);
+      $mdBottomSheet.hide();
     };
 
   }]);
